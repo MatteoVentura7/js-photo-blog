@@ -10,6 +10,7 @@
 
 body {
     font-family: "Edu TAS Beginner", serif;
+    background-image: url(img/cork.png);
 }
 
 .container {
@@ -44,7 +45,7 @@ header h1 {
 ------------------*/
 
 main {
-    background-image: url(img/cork.png);
+    
     padding-top: 1.875rem;
     padding-bottom: 1.875rem;
     padding-left: 3.125rem;
@@ -79,6 +80,15 @@ main {
 .img-post {
     width: 100%;
 }
+
+.pos-pin {
+        position: relative;
+        left: 45%; 
+}  
+
+.col:hover {
+    transform: rotate(15deg)
+}  
 
 
 /*----------------
