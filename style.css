@@ -19,6 +19,9 @@ body {
 
 .row {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 1.5625rem;
 }
 
 /*----------------
@@ -44,6 +47,8 @@ main {
     background-image: url(img/cork.png);
     padding-top: 1.875rem;
     padding-bottom: 1.875rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
 }
 
 /*----------------
@@ -51,12 +56,12 @@ main {
 ------------------*/
 
 .posts {
-    gap: 20px;
+    
     margin-bottom: 20px;
 }
 
-.posts .col {
-    width: calc(100% / 3);
+.col {
+    width: calc(94% / 3);
     background-color: white;
     padding-top: .9375rem;
     padding-right: .9375rem;
@@ -73,4 +78,50 @@ main {
 
 .img-post {
     width: 100%;
+}
+
+/*----------------
+    RESPONSIVE
+------------------*/
+
+/* DA 400px a 0px */
+@media screen and (max-width: 25rem) {
+
+    .col {
+        width: 100%;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* DA 576px a 0px */
+@media screen and (max-width: 36rem) {
+
+   
+
+    
+    
+}
+/* DA 768px a 0 */
+@media screen and (max-width: 48rem) {
+
+   
+
+    .col {
+        width: calc(94% / 2);
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+   
+    
 }
