@@ -1,37 +1,28 @@
+//DOM ELEMENTS
 
+const photoElm = document.getElementById("photo")
+const BtnElm = document.getElementById("btn")
 
-//DOM ELM
-const cardElm = document.getElementById("card");
-const cardImgElm = document.querySelectorAll(".img-post");
-
+//EVENTS
 function addCard() {
-axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
-.then(function (resp) {
-    const newCard = resp.data; 
-    newCard.forEach(card => {
-        const title = card.title;
-        const image = card.url;
-        cardElm.innerHTML += `
-       
-                <div class="col">
+axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
+    .then(function (res) {
+        let NewCards = res.data;
+        let CardHtml = "";
+        NewCards.forEach((photo) => {
+            CardHtml += `
+            <div class="col">
                 <div class="post">
                     <div class="post-image">
-                        <img class="pos-pin" src="img/pin.svg" alt="pin">
-                        <img class="img-post" src="${image}" alt="Photo">
+                        <img src="${photo.url}" alt="img" class="img-fluid">
+                        <img src="img/pin.svg" class="pos-pin">
                     </div>
-                    <div class="post-info">
-                        <p>${title}</p>
-                    
-                    </div>
+                    <div class="post-info">${photo.title}</div>
                 </div>
-                </div>
-            
-      `;
-    });
-  });
-   }
+            </div>`
+        });
 
-   addCard();
+        photoElm.innerHTML = CardHtml;
+  }) }
 
-
- 
+  addCard();

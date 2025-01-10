@@ -1,3 +1,6 @@
+/*----------------
+      RESET
+----------------*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,32 +8,42 @@
 }
 
 /*----------------
-    COMMON
-------------------*/
+      COMMON
+----------------*/
 
 body {
+    background-image: url("img/cork.png");
     font-family: "Edu TAS Beginner", serif;
-    background-image: url(img/cork.png);
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 80%;
     margin: auto;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 1.5625rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
+.col {
+    max-width: 100%;
+    padding: 1rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+} 
+
 /*----------------
-    HEADER
-------------------*/
+      HEADER
+----------------*/
 
 header {
-    background-image: url(img/wall.png);
+    background-image: url("img/wall.png");
     padding-top: 1.5625rem;
     padding-bottom: 1.5625rem;
 }
@@ -41,99 +54,104 @@ header h1 {
 }
 
 /*----------------
-    MAIN
-------------------*/
+      MAIN
+----------------*/
 
-main {
-    
-    padding-top: 1.875rem;
-    padding-bottom: 1.875rem;
-    padding-left: 3.125rem;
-    padding-right: 3.125rem;
-}
-
-/*----------------
-    ROW 
-------------------*/
-
-.posts {
-    
-    margin-bottom: 20px;
-}
-
-.col {
-    width: calc(94% / 3);
+.post {
     background-color: white;
-    padding-top: .9375rem;
-    padding-right: .9375rem;
-    padding-left: .9375rem;
+    padding: 1rem;
+    max-width: 100%;
+    max-height: 25rem;
+    position: relative;
+    transition: 0.3s
 }
 
-.post-image {
-    padding-bottom: .9375rem;
+.post:hover {
+    transform: rotate(10deg);
+    cursor: pointer;
+
 }
 
 .post-info {
-    padding-bottom: 1.25rem;
+    font-size: 1.5rem;
+    padding-bottom: 1.2rem;
 }
 
-.img-post {
-    width: 100%;
+.post-image {
+    min-width: 100%;
 }
 
 .pos-pin {
-        position: relative;
-        left: 45%; 
-}  
+    width: 1.875rem;
+    position: absolute;
+    top: -2%;
+    left: 46%;
+}
 
-.col:hover {
-    transform: rotate(15deg)
-}  
+#img-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    flex-direction: column;
+}
+
+#img-over.active {
+    display: flex;
+}
+
+#img-over img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+}
+
+button:hover{
+    font-size: 1.875rem;
+    transition: 0.7s;
+}
 
 
 /*----------------
-    RESPONSIVE
-------------------*/
+  RESPONSIVE
+  MOBILE FRIST
+----------------*/
 
 /* DA 400px a 0px */
-@media screen and (max-width: 25rem) {
+
+@media screen and (min-width: 25rem) {
 
     .col {
-        width: 100%;
+        width: calc(100% / 2);
     }
-
-    .row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
 }
 
-
-/* DA 576px a 0px */
-@media screen and (max-width: 36rem) {
-
-   
-
-    
-    
-}
 /* DA 768px a 0 */
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 48rem) {
 
-   
+    .container {
+        max-width: 60%;
+    }
 
     .col {
-        width: calc(94% / 2);
+        width: calc(100% / 3);
     }
-
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        
-    }
-
-   
-    
 }
+
+ 
