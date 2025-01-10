@@ -12,7 +12,8 @@ const BigImg = (imgUrl) => {
 };
 
 //EVENTS
-function addCard() {
+
+function addCard() {   // finzione per aggiungere le foto
 axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
     .then(function (res) {
         let NewCards = res.data;
@@ -35,7 +36,7 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
         const cards = document.querySelectorAll(".post"); 
         cards.forEach((post) => { 
             const img = post.querySelector("img");
-            post.addEventListener("click", () => BigImg(img.src)) 
+            post.addEventListener("click", () => BigImg(img.src)) // al click dell'immagine si attiva l'overlay
         })
   }) }
 
