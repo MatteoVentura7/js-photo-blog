@@ -3,6 +3,14 @@
 const photoElm = document.getElementById("photo")
 const BtnElm = document.getElementById("btn")
 
+//FUNCTION
+
+const BigImg = (imgUrl) => {
+    const overlay = document.getElementById("img-over"); // seleziono l'overlay
+    overlay.querySelector("img").src = imgUrl; 
+    overlay.classList.add("active"); // Aggiungo la classe  per farlo apparire
+};
+
 //EVENTS
 function addCard() {
 axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
@@ -23,6 +31,12 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
         });
 
         photoElm.innerHTML = CardHtml;
+
+        const cards = document.querySelectorAll(".post"); 
+        cards.forEach((post) => { 
+            const img = post.querySelector("img");
+            post.addEventListener("click", () => BigImg(img.src)) 
+        })
   }) }
 
   addCard();
