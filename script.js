@@ -40,3 +40,11 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
   }) }
 
   addCard();
+
+// bottone di chiusura
+
+BtnElm.addEventListener("click", () => {
+    const overlay = document.getElementById("img-over")
+    overlay.classList.remove("active");
+    overlay.querySelector("img").src = "img/cork.png" 
+})
