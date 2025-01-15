@@ -7,7 +7,7 @@ const BtnElm = document.getElementById("btn")
 
 const BigImg = (imgUrl) => {
     const overlay = document.getElementById("img-over"); // seleziono l'overlay
-    overlay.querySelector("img").src = imgUrl; 
+    overlay.querySelector("img").src = imgUrl; //Passo il valore di imgUrl all'overlay
     overlay.classList.add("active"); // Aggiungo la classe  per farlo apparire
 };
 
@@ -33,10 +33,10 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
 
         photoElm.innerHTML = CardHtml;
 
-        const cards = document.querySelectorAll(".post"); 
+        const cards = document.querySelectorAll(".post"); // seleziono le card
         cards.forEach((post) => { 
             const img = post.querySelector("img");
-            post.addEventListener("click", () => BigImg(img.src)) // al click dell'immagine si attiva l'overlay
+            post.addEventListener("click", () => BigImg(img.src)) // al click dell'immagine si attiva l'overlay 
         })
   }) }
 
@@ -47,5 +47,4 @@ axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
 BtnElm.addEventListener("click", () => {
     const overlay = document.getElementById("img-over")
     overlay.classList.remove("active");
-    overlay.querySelector("img").src = "img/cork.png" 
 })
